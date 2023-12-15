@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-export function SubmitTask({ value, handleSubmit, handleSet }) {
+export default function SubmitTask({ value, handleSubmit, handleSet }) {
     const inputRef = useRef(null);
 
     // handle function - form submission

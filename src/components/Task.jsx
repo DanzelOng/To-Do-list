@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function Task({ item, handleChecked, handleDelete }) {
+export default function Task({ item, handleChecked, handleDelete }) {
     const [isChecked, setIsChecked] = useState(() => {
         return item.checked ? item.checked : false;
     });

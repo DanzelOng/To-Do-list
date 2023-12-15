@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ToDoList } from './ToDoList';
-import { Footer } from './Footer';
-import { SubmitTask } from './SubmitTask';
+import ToDoList from './ToDoList';
+import Footer from './Footer';
+import SubmitTask from './SubmitTask';
 import { initializeTasks, initializeCompletedTasks } from '../utils/helpers';
 import '../app.css';
 
@@ -15,7 +15,7 @@ export default function App() {
 
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
-    }, [tasks, completedTasks]);
+    }, [tasks]);
 
     useEffect(() => {
         localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
