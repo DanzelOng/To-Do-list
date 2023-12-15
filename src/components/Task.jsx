@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
 export function Task({ item, handleChecked, handleDelete }) {
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(() => {
+        return item.checked ? item.checked : false;
+    });
 
     const handleBtnClick = function () {
         handleDelete(item, item.checked);
@@ -16,6 +18,7 @@ export function Task({ item, handleChecked, handleDelete }) {
             <div className='task'>
                 <input
                     type='checkbox'
+                    checked={item.checked || isChecked}
                     value={isChecked}
                     onChange={() => {
                         handleChecked(item, isChecked);

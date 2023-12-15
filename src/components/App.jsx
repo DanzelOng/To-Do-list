@@ -1,13 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ToDoList } from './ToDoList';
 import { Footer } from './Footer';
 import { SubmitTask } from './SubmitTask';
+import { initializeTasks, initializeCompletedTasks } from '../utils/helpers';
 import '../app.css';
 
 export default function App() {
     const [value, setValue] = useState('');
-    const [tasks, setTask] = useState([]);
-    const [completedTasks, setCompletedTasks] = useState(false);
+    const [tasks, setTask] = useState(() => initializeTasks());
+
+    const [completedTasks, setCompletedTasks] = useState(() =>
+        initializeCompletedTasks()
+    );
+
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks, completedTasks]);
+
+    useEffect(() => {
+        localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+    }, [completedTasks]);
 
     // derived states
     const numChecked = tasks.filter((task) => task.checked).length;

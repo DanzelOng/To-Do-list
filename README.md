@@ -7,7 +7,9 @@ A simple Todo list tracker built using ReactJs.
 * HTML5
 * CSS
 * ReactJS
+* LocalStorage
 
 ## Features
-* Save Todos 
+* Add Todos 
 * Delete Todos
+* LocalStorage to persists Todos data across browser sessions
